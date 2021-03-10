@@ -1,8 +1,9 @@
 import React from 'react'
+import {CartdWidget} from './CartWidget'
 
 function NavBar()   {
     return (
-        <React.Fragment>
+        <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a className="navbar-brand" href="#">Game store</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +15,7 @@ function NavBar()   {
                             <a className="nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" href="#">PC</a>
+                            <a className="nav-link" href="#">PC</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,9 +48,15 @@ function NavBar()   {
                             </div>
                         </li>
                     </ul>
+                    <ul className="nav navbar-nav ml-auto" >
+                        <li className="nav-item">
+                            <CartdWidget/>
+                        </li>
+                    </ul>
+
                 </div>
             </nav>
-        </React.Fragment>
+        </>
     );
   }
    
