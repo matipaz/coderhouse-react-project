@@ -1,17 +1,27 @@
-import { useState } from "react";
-import ItemCount from './ItemCount'
+import { useState,useEffect } from "react";
+import Item   from './Item'
+import itemsJson    from './items.json'
+import SpinnerLoading from './SpinnerLoading'
+import {map} from'lodash'
+const ItemListContainer = () =>{
+    const [items, setItems] = useState([]);
 
-const ItemListContainer = ({greeting}) =>{
-    const [stockActual, setStockActual] = useState(5);
-    const restarStock = (e, nuevoStock) => {
-      e.preventDefault();
-      setStockActual((stockActual) => (stockActual - nuevoStock));
-    };
+    useEffect(() => {
+        new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(itemsJson);
+        }, 2000);
+        }).then((resultado) => setItems(resultado));
+    });
+
+
     return(
-    <> 
-        <h1 className="display-3">{greeting}</h1>
-        <ItemCount  stock={stockActual} initial={1} onAdd={restarStock}/> 
-    </>)
+        <>
+            {items.length === 0 ? <SpinnerLoading/> : null}
+            {map(items,(item,index) => <Item item={item} key={index} />)}
+        </> 
+    
+    )
 }
 
 export default ItemListContainer;

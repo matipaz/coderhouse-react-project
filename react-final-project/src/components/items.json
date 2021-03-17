@@ -1,0 +1,42 @@
+[
+    {
+        "name":"Fifa 21",
+        "description":"",
+        "stock":"100",
+        "price":"$800",
+        "format":"Fisico",
+        "image":{
+            "src":"",
+            "alt":"",
+            "title":""
+        }
+
+    },
+    {
+        "name":"Assassin's Creed Valhalla",
+        "description":"",
+        "stock":"20",
+        "price":"$8500",
+        "format":"digital",
+        "image":{
+            "src":"",
+            "alt":"",
+            "title":""
+        }
+
+    },
+    {
+        "name":"Marvel's Spider-Man: Miles Morales",
+        "description":"",
+        "stock":"5",
+        "price":"$9000",
+        "format":"digital",
+        "image":{
+            "src":"",
+            "alt":"",
+            "title":""
+        }
+
+    }
+    
+]
