@@ -1,4 +1,5 @@
 import {useState,useEffect} from 'react'
+import {useParams} from 'react-router-dom'
 import ItemDetail    from './ItemDetail'
 import {find,isEmpty} from 'lodash'
 import itemsJson    from './items.json'
@@ -8,12 +9,15 @@ const getItem = async(id) =>{
 
     const itemResult = await new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(find(itemsJson,(item)=>item.id == id.id ));}
+                resolve(find(itemsJson,(item)=>item.id == id ));}
                 , 2000);})
     return itemResult
 }
 
-const ItemDetaiContainer = (id) =>{
+const ItemDetaiContainer = () =>{
+
+    let {id} = useParams()
+
     const [item, setState] = useState({});
     useEffect(() =>{ getItem(id)
         .then((resolve) => {setState(resolve); })}, [item])
@@ -24,9 +28,6 @@ const ItemDetaiContainer = (id) =>{
             </>
             
 }
-
-
-
 
 
 export default ItemDetaiContainer
