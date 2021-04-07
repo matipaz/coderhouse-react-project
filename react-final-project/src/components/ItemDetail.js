@@ -1,23 +1,20 @@
-import { useState,useRef } from "react";
+import {useState,useRef } from "react";
 import {NavLink} from 'react-router-dom'
 import {useCartContext} from '../context/cartContext'
-import Cart from "./Cart";
-
 import ItemCount from './ItemCount'
 
 
 const ItemDetail = ({item}) =>{
-
+    const {addToCart} = useCartContext()
     const [stockActual, setStockActual] = useState(item.stock);
     const btnFinish = useRef(null)
-    const cartContext = useCartContext()
 
     const restarStock = (e, nuevoStock) => {
         e.preventDefault();
         setStockActual((stockActual) => (stockActual - nuevoStock));
         if(btnFinish.current.hidden){
-            item.quantity = nuevoStock
-            cartContext.addToCart(item)
+            item.quantity = parseInt(nuevoStock)
+            addToCart(item)
             btnFinish.current.hidden = false
 
         }
