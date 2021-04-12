@@ -18,9 +18,9 @@ export const CartContextProvider = ({children}) => {
         setCart(remove(({item}) => item.id == id));
         updatePriceAndTotalItems();
     }
-    
+     
     const updatePriceAndTotalItems = () => {
-        
+
         const sumPrice = sum( map(cart,(item)=>item.price * item.quantity))
         const sumQuantityItems = sum(map(cart,(item)=>item.quantity))
 

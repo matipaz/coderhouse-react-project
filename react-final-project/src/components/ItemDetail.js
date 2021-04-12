@@ -19,7 +19,8 @@ const ItemDetail = ({item}) =>{
 
         }
     };
-
+    console.log(item.image.src)
+    
     return <div className="card">
                 <img  src={require(`${item.image.src}`).default} alt="Card image cap"></img>
                 <div className="card-body">
